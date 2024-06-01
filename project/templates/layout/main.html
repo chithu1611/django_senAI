@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Dorang landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Sentinel AI</title>
+    <!-- font icons -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+            <!-- <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css"> -->
+
+    <!-- Bootstrap + Dorang main styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/dorang.css' %}">
+	        <!-- <link rel="stylesheet" href="assets/css/dorang.css"> -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" class="dark-theme">
+    {% for message in messages %}
+    <div id="alert-message" class="alert alert-{{ message.tags }} alert-info fade show" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    <!-- {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-info alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">Close</button>
+    </div>
+    {% endfor %} -->
+
+
+    {% block content%}
+    {% endblock content%}
+
+    <script>
+        setTimeout(function() {
+            var alertMessage = document.getElementById('alert-message');
+            alertMessage.classList.remove('show');
+            alertMessage.classList.add('fade');
+        }, 2000);
+    </script>
+    <!-- core  -->
+    <script  src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script  src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+            <!-- <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+            <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script> -->
+
+    <!-- bootstrap affix -->
+    <script  src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+            <!-- <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script> -->
+
+    <!-- Dorang js -->
+    <script  src="{% static 'assets/js/dorang.js' %}"></script>
+            <!-- <script src="assets/js/dorang.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

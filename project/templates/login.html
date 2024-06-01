@@ -1,0 +1,55 @@
+{% extends 'layout/main.html' %}
+{% block content%}
+
+
+<!-- page navbar -->
+<nav class="page-navbar" data-spy="affix" data-offset-top="10">
+    <ul class="nav-navbar container">
+        <li class="nav-item"><a href="{% url 'home'%}" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="{% url 'login'%}" class="nav-link">Login</a></li>
+        <li class="nav-item"><a href="{% url 'register'%}" class="nav-link">Register</a></li>
+    </ul>
+</nav>
+
+
+
+<!-- page header -->
+<header class="header">
+    <div class="overlay"></div>
+    <div class="header-content">
+        <h1 class="header-title">Sentinel AI</h1>
+        <p class="header-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt.</p>
+
+    </div>
+</header>
+
+<!--footer & pre footer -->
+<div class="contact-section">
+    <div class="overlay"></div>
+    <!-- container -->
+    <div class="container">
+        <div class="col-md-10 col-lg-8 m-auto">
+            <h6 class="title mb-2">Login</h6>
+            <p class="mb-5"></p>
+            <form action="" method="post" class="form-group">
+                {% csrf_token %}
+                <input type="text" name="username" id="username" size="50" class="form-control"
+                    placeholder="Your Username" autofocus required>
+                <br>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password"
+                    required autocomplete="current-password">
+                <br>
+                <input type="submit" value="Login" class="form-control">
+            </form>
+        </div>
+
+    </div>
+    <!-- end of container -->
+    <br>
+    <br>
+    <br>
+</div>
+<!-- end of pre footer -->
+
+{% endblock content%}

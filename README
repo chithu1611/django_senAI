@@ -1,0 +1,74 @@
+
+C:\Users\chith\vir_env_senAI\Guru_SenAI\django_senAI>pipenv install django
+
+Creating a virtualenv for this project...
+Pipfile: C:\Users\chith\vir_env_senAI\Guru_SenAI\django_senAI\Pipfile
+Using default python from C:\Users\chith\AppData\Local\Programs\Python\Python311\python.exe (3.11.5) to create virtualenv...
+[=   ] Creating virtual environment...created virtual environment CPython3.11.5.final.0-64 in 1093ms
+  creator CPython3Windows(dest=C:\Users\chith\.virtualenvs\django_senAI-UmuRIG-X, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=C:\Users\chith\AppData\Local\pypa\virtualenv)
+    added seed packages: pip==24.0, setuptools==69.1.1, wheel==0.42.0
+  activators BashActivator,BatchActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+
+Successfully created virtual environment!
+Virtualenv location: C:\Users\chith\.virtualenvs\django_senAI-UmuRIG-X
+Creating a Pipfile for this project...
+Installing django...
+Resolving django...
+Added django to Pipfile's [packages] ...
+Installation Succeeded
+Pipfile.lock not found, creating...                                                                                                                                              
+Locking [packages] dependencies...
+Building requirements...
+Resolving dependencies...
+Success!
+Locking [dev-packages] dependencies...                                                                                                                                           
+Updated Pipfile.lock (af42abefb766e975f7680f10368735353569fb4fe0114e59496a7202658362fc)!
+Installing dependencies from Pipfile.lock (8362fc)...
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+C:\Users\chith\vir_env_senAI\Guru_SenAI\django_senAI>pipenv shell
+
+Launching subshell in virtual environment...
+Microsoft Windows [Version 10.0.22631.3296]
+(c) Microsoft Corporation. All rights reserved.
+
+(django_senAI-UmuRIG-X) C:\Users\chith\vir_env_senAI\Guru_SenAI\django_senAI>   
+
+
+(django_senAI-UmuRIG-X) C:\Users\chith\vir_env_senAI\Guru_SenAI\django_senAI>django-admin startproject senAI .
+
+
+//creating working app "project"
+
+(django_senAI-UmuRIG-X) C:\Users\chith\vir_env_senAI\Guru_SenAI\django_senAI>python manage.py startapp project
+
+//Registering this app inside the settings.py of our main application(senAI)
+//In settings.py
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'project', // Add our work app
+]
+
+
+//Run the project 
+(django_senAI-UmuRIG-X) C:\Users\chith\vir_env_senAI\Guru_SenAI\django_senAI>python manage.py runserver "Any port number you want" (eg. python manage.py runserver 2002)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Username (leave blank to use 'chith'): Sentinel_AI
+Email address: Sentinel@gmail.com
+Password:2302
+Password (again):2302
+This password is too short. It must contain at least 8 characters.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.

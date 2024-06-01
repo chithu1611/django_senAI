@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Dorang landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Sentinel AI</title>
+    <!-- font icons -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css"> -->
+
+    <!-- Bootstrap + Dorang main styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/dorang.css' %}">
+    <!-- <link rel="stylesheet" href="assets/css/dorang.css"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/senAI.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" class="dark-theme">
+    {% for message in messages %}
+    <div id="alert-message" class="alert alert-{{ message.tags }} alert-info fade show" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    <!-- page navbar -->
+    <nav class="page-navbar" data-spy="affix" data-offset-top="10">
+        <ul class="nav-navbar container">
+            <!-- <li class="nav-item"><a href="#" class="nav-link">Home</a></li> -->
+            <li class="nav-item"><a href="{% url 'home'%}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{% url 'logout'%}" class="nav-link">Logout</a></li>
+        </ul>
+    </nav><!-- end of page navbar -->
+    <!-- page header -->
+
+    <header class="header">
+        <div class="overlay"></div>
+        <div class="header-content">
+            <h1 class="header-title">Sentinel AI</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label for="id_name" class="col-sm-2 col-form-label">URL:</label>
+                    <div class="col-sm-10">
+                        {{ form.as_p}}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </header><!-- end of page header -->
+
+    {% if zipped_data %}
+    <div class="container-table">
+        <ul class="responsive-table">
+            <li class="table-header">
+                <div class="col col-1">Customer Name</div>
+                <div class="col col-2">Customer Review</div>
+                <div class="col col-3">Result</div>
+
+            </li>
+            {% for name, review_item, result_item in zipped_data %}
+            <li class="table-row">
+                <div class="col col-1" data-label="Job Id">{{ name }}</div>
+                <div class="col col-2" data-label="Customer Name">{{ review_item }}</div>
+                <div class="col col-3" data-label="Amount">{{ result_item.label }}</div>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+    {% endif %}
+    {% if avg_result %}
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    {% if product_name %}
+                    <h6>{{ product_name }}</h6>
+                    {% endif %}
+                    {% if pie_chart %}
+                    <img src="data:image/png;base64,{{ pie_chart }}" alt="Pie Chart">
+                    {% endif %}
+                <center> {{avg_result}}</center>
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    {% endif %} 
+    <script>
+        setTimeout(function () {
+            var alertMessage = document.getElementById('alert-message');
+            alertMessage.classList.remove('show');
+            alertMessage.classList.add('fade');
+        }, 2000);
+    </script>
+    <!-- core  -->
+    <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+    {% if avg_result %}
+
+    <script>
+    $(document).ready(function(){
+        $('#exampleModalCenter').modal('show');
+    });
+    </script>
+
+    {% endif %}
+
+    <!-- bootstrap affix -->
+    <script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+    <!-- Dorang js -->
+    <script src="{% static 'assets/js/dorang.js' %}"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+
+</body>
+
+</html>

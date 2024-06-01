@@ -1,0 +1,82 @@
+{% extends 'layout/main.html' %}
+{% block content%}
+
+
+<!-- page navbar -->
+<nav class="page-navbar" data-spy="affix" data-offset-top="10">
+    <ul class="nav-navbar container">
+        <li class="nav-item"><a href="{% url 'home'%}" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="{% url 'login'%}" class="nav-link">Login</a></li>
+        <li class="nav-item"><a href="{% url 'register'%}" class="nav-link">Register</a></li>
+    </ul>
+</nav>
+
+
+
+<!-- page header -->
+<header class="header">
+    <div class="overlay"></div>
+    <div class="header-content">
+        <h1 class="header-title">Sentinel AI</h1>
+        <p class="header-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt.</p>
+
+    </div>
+</header>
+
+<!--footer & pre footer -->
+<div class="contact-section">
+    <div class="overlay"></div>
+    <!-- container -->
+    <div class="container">
+        <div class="col-md-10 col-lg-8 m-auto">
+            <h6 class="title mb-2">Register</h6>
+            <p class="mb-5"></p>
+            <form action="" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="" class="form-label">User Name</label>
+                    {{form.username}}
+                    {% if form.errors.username%}
+                    <label class="text-danger">{{form.errors.username}}</label>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="" class="form-label">Email</label>
+                    {{form.email}}
+                    {% if form.errors.email %}
+                    <label class="text-danger">{{form.errors.email}}</label>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="" class="form-label">Password</label>
+                    {{form.password1}}
+                    {% if form.errors.password1 %}
+                    <label class="text-danger">{{form.errors.password1 }}</label>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="" class="form-label">Confirm Password</label>
+                    {{form.password2}}
+                    {% if form.errors.password2 %}
+                    <label class="text-danger">{{form.errors.password2 }}</label>
+                    {% endif %}
+                </div>
+                <input type="submit" value="Register" class="form-control">
+            </form>
+        </div>
+
+    </div>
+    <!-- end of container -->
+    <br>
+    <br>
+    <br>
+</div>
+<!-- end of pre footer -->
+
+{% endblock content%}
+
+    
+
+
+   

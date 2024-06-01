@@ -1,0 +1,29 @@
+{% extends 'layout/main.html' %}
+{% block content%}
+
+<!-- page navbar -->
+<nav class="page-navbar" data-spy="affix" data-offset-top="10">
+    <ul class="nav-navbar container">
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a href="{% url 'home'%}" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="{% url 'sentinel'%}" class="nav-link">Tool</a></li>
+        <li class="nav-item"><a href="{% url 'logout'%}" class="nav-link">Logout</a></li>
+        {% else %}
+        <li class="nav-item"><a href="{% url 'home'%}" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="{% url 'login'%}" class="nav-link">Login</a></li>
+        <li class="nav-item"><a href="{% url 'register'%}" class="nav-link">Register</a></li>
+        {% endif %}
+
+    </ul>
+</nav>
+
+<!-- page header -->
+<header class="header">
+    <div class="overlay"></div>
+    <div class="header-content">
+        <h1 class="header-title">Sentinel AI</h1>
+        <p class="header-subtitle">Sentinel AI is a comprehensive web scraping tool that enables efficient data extraction through rotating IP addresses and proxy servers. By integrating sentiment analysis and visualization techniques, it offers actionable insights presented in pie charts and interactive displays, facilitating informed decision-making with ease.</p>
+    </div>
+</header>
+
+{% endblock content%}
